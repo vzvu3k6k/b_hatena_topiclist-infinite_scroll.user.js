@@ -52,7 +52,7 @@ var update = function(responseXML){
 };
 
 var getNextUrl = function(){
-  var l = document.querySelector('link[rel="next"]');
+  var l = document.querySelector('head link[rel="next"]');
   return l && l.href;
 };
 
