@@ -49,28 +49,6 @@ var update = function(responseXML){
   var $oldTopicList = $oldTopicMain.querySelector('.js-topic-list');
   toArray($newTopicMain.querySelectorAll('.js-topic-list > *:not(.topic-tab)'))
     .forEach(function(node){ $oldTopicList.appendChild(node); });
-
-  // .topic-month-navi（画面右の日付リスト）を更新
-  var $newTopicMonthNavi = $newTopicMain.querySelector('.topic-month-navi');
-  var $oldTopicMonthNavi = $oldTopicMain.querySelector('.topic-month-navi');
-  toArray($newTopicMonthNavi.children)
-    .forEach(function($newMonth){
-      var $oldMonth = document.getElementById($newMonth.id);
-      if(!$oldMonth){
-        // 同じ月のリストがまだ存在しなければそのまま追加
-        $oldTopicMonthNavi.appendChild($newMonth);
-      }else{
-        // 同じ月のリストがすでに存在するなら日付だけ追加
-        var $newTopicDataNavi = $newMonth.querySelector('.topic-date-navi');
-        var $oldTopicDataNavi = $oldMonth.querySelector('.topic-date-navi');
-        toArray($newTopicDataNavi.children)
-          .forEach(function($newDay){
-            if(!document.getElementById($newDay.id)){
-              $oldTopicDataNavi.appendChild($newDay);
-            }
-          });
-      }
-    });
 };
 
 var getNextUrl = function(){
@@ -108,6 +86,7 @@ var onScroll = (function(){
       })
       .then(function(){
         loading = false;
+        document.querySelector('.topic-month-navi').style.display = 'none';
       });
   };
 })();
