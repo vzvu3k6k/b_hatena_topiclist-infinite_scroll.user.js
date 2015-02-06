@@ -49,6 +49,16 @@ var update = function(responseXML){
   var $oldTopicList = $oldTopicMain.querySelector('.js-topic-list');
   toArray($newTopicMain.querySelectorAll('.js-topic-list > *:not(.topic-tab)'))
     .forEach(function(node){ $oldTopicList.appendChild(node); });
+
+  // 「続きを読む」を更新
+  var $next = document.head.querySelector('link[rel="next"]');
+  var $moreLink = $oldTopicMain.querySelector('.pager a');
+  if($next){
+    $moreLink.href = $next.href;
+  }else{
+    $moreLink.href = '#';
+    $moreLink.textContent = '最後まで読み込みました';
+  }
 };
 
 var getNextUrl = function(){
