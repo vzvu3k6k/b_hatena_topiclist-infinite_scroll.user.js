@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           はてブの「トピック」を無限スクロール
 // @description    
-// @version        0.1
+// @version        0.2
 // @author         vzvu3k6k
 // @match          http://b.hatena.ne.jp/topiclist*
 // @match          http://b.hatena.ne.jp/topic/*
