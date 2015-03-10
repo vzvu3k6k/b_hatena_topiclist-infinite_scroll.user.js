@@ -97,6 +97,9 @@ var onScroll = (function(){
       .then(function(){
         loading = false;
         document.querySelector('.topic-month-navi').style.display = 'none';
+
+        // サイドバーの位置を修正
+        Hatena.Bookmark.TopicUI.adjustSideColumnPositions();
       });
   };
 })();
