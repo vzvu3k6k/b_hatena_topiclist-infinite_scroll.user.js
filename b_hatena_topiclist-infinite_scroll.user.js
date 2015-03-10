@@ -7,6 +7,7 @@
 // @match          http://b.hatena.ne.jp/topic/*
 // @namespace      http://vzvu3k6k.tk/
 // @license        CC0
+// @grant          none
 // ==/UserScript==
 
 var loadPage = function(url){
